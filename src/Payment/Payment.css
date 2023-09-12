@@ -1,0 +1,50 @@
+.payment {
+  display: flex;
+  padding: 20px;
+  background-color: rgb(222, 237, 237);
+  height: max-content;
+}
+
+.payment__container {
+  text-align: left;
+  justify-content: center;
+
+  font-weight: 400;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.payment__container > h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(234, 237, 237);
+  margin: 0;
+  padding: 10px 0;
+
+  > a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.payment__section {
+  display: flex;
+  padding: 20px;
+  margin: 0 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.payment__title {
+  flex: 0.2;
+}
+
+.payment__address {
+  font-weight: 600;
+}
+
+.payment__address,
+.payment__items {
+  margin-left: 50px;
+  flex: 0.8;
+}
