@@ -44,7 +44,8 @@
 }
 
 .payment__address,
-.payment__items {
+.payment__items,
+.payment__details {
   margin-left: 50px;
   flex: 0.8;
 }

@@ -5,9 +5,6 @@ import { useStateValue } from "../StateProvider";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 function Checkout() {
   const [{ basket, user }, dispatch] = useStateValue();
-  basket.map((item) => {
-    console.log(item);
-  });
   return (
     <div className="checkout">
       <div className="checkout__left">
