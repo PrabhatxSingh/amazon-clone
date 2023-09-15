@@ -4,10 +4,17 @@ import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 import { useStateValue } from "../StateProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../reducer";
 import axios from "axios";
 import { db } from "../firebase";
+
+function formatCurrency(amount) {
+  // You can customize this currency formatting function as needed
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(amount);
+}
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -30,7 +37,6 @@ function Payment() {
         `${url}/payments/create?total=${getBasketTotal(basket) * 100 + 1}`
       );
       setClientSecret(response.data.clientSecret);
-      // var paymentIntent = response.error.payment_intent;
     };
 
     getClientSecret();
@@ -73,6 +79,7 @@ function Payment() {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
+
   return (
     <div className="payment">
       <div className="payment__container">
@@ -113,18 +120,7 @@ function Payment() {
             <form action="submit" onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
               <div className="payment__priceContainer">
-                <CurrencyFormat
-                  renderText={(value) => (
-                    <>
-                      <h3>Order Total : {value}</h3>
-                    </>
-                  )}
-                  decimalScale={2}
-                  value={getBasketTotal(basket)}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                />
+                <h3>Order Total : {formatCurrency(getBasketTotal(basket))}</h3>
                 <button disabled={processing || disabled || succeeded}>
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
