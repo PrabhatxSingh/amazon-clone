@@ -18,7 +18,7 @@ function formatCurrency(amount) {
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
-  const url = "http://localhost:3001";
+  const url = "https://amazon-backend-jysh.onrender.com";
 
   const stripe = useStripe();
   const elements = useElements();
