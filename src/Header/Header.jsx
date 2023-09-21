@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa"; // Replace with appropriate icons from react-icons
-import { FaShoppingCart } from "react-icons/fa"; // Replace with appropriate icons from react-icons
+import { FaSearch } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa"; 
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
 

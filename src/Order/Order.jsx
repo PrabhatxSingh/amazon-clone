@@ -4,7 +4,6 @@ import moment from "moment";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 
 function formatCurrency(amount) {
-  // You can customize this currency formatting function as needed
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

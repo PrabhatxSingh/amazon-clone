@@ -5,7 +5,6 @@ import { getBasketTotal } from "../reducer";
 import { useNavigate } from "react-router-dom";
 
 function formatCurrency(amount) {
-  // You can customize this currency formatting function as needed
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
